@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024 Presidential Election</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a1a1aa;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .image { align: right; }
+        .candidate {
+            border: 1px solid #8a9ea0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            background-color: #8a9ea0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .candidate2 {
+            border: 1px solid #8a9ea0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            background-color: #8a9ea0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-align: right;
+        }
+        .runningmate2 { border: 1px solid #8a9ea0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            background-color: #97b9af;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-align: right;
+        }
+
+        #countdown {
+            font-size: 24px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+        .runningmate { border: 1px solid #8a9ea0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            background-color: #97b9af;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <script>
+   
+        function updateCountdown() {
+            const electionDate = new Date('2024-11-05T00:00:00Z');
+            const now = new Date();
+            const timeRemaining = electionDate - now;
+
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML =
+                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            if (timeRemaining < 0) {
+                clearInterval(interval);
+                document.getElementById('countdown').innerHTML = "Election Day!";
+            }
+        }
+
+        const interval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call to display countdown immediately
+       
+    </script>
+
+    <header>
+        <h1>2024 Presidential Election</h1>
+        <div class="countdown" id="countdown"></div>
+    </header>
+
+    <section>
+        <div class="candidate">
+            <h2>Candidate 1: Kamala Harris</h2>
+            <p>Party: Democratic</p>
+            Toggle Bio</button>
+            Bio: Kamala Harris was previously VP for 4 years under Joe Biden. If elected, she will be the first female president in American history.</p>
+            <p><a href="https://kamalaharris.com/meet-kamala-harris/" target="_blank">More information</a></p>
+            
+            <div class="image">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Kamala_Harris_Vice_Presidential_Portrait.jpg/800px-Kamala_Harris_Vice_Presidential_Portrait.jpg" width="220" height="300" alt="Kamala Harris">
+            </div>
+            <iframe
+                title="polymarket-market-iframe"
+                src="https://embed.polymarket.com/market.html?market=will-kamala-harris-win-the-2024-us-presidential-election&features=volume&theme=dark"
+                width="400"
+                height="180"
+                frameBorder="0"></iframe>
+        </div>
+    </section>
+    <section>
+
+<div class="runningmate">
+    <h2>Running Mate for Kamala Harris: Tim Walz</h2>
+    <p>Party: Democrat</p>
+<p> Bio: Tim Walz is a Minnesota governor and former high school teacher, who has proposed policies like signing a $2.3 billion education budget into law</p>
+<p> <a href="https://kamalaharris.com/meet-governor-tim-walz/" target="=_blank"> More information</a></p>
+<div class="image">
+<img src="https://mn.gov/governor/assets/Governor%20Walz-2024-Bio_tcm1055-418597.jpg" width="220px" height="300px">
+</div>
+
+</div></section>
+<section>
+        <div class="candidate2">
+            <h2>Candidate 2: Donald Trump</h2>
+            <p>Party: Republican</p>
+          Bio: Donald Trump is a former buisinessman and the 45th president of America. A famous fighter, he his become a namesake of the rupublican party in recent times.</p>
+            <p><a href="https://www.donaldjtrump.com" target="_blank"> More information</a></p>
+           <div class="image"> 
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1MWm4Uc-yhWB5bkRg8r_Vy6ueABFtDb_qSA&s" width="220px" height="300px">
+        </div> 
+
+            <iframe
+	title="polymarket-market-iframe"
+	src="https://embed.polymarket.com/market.html?market=will-donald-trump-win-the-2024-us-presidential-election&features=volume&theme=dark"
+	width="400"
+	height="180"
+	frameBorder="0"
+
+    >
+      </iframe></div> 
+    </section>
+
+    <div class="runningmate2">
+        <h2>Running Mate for Donald Trump: J.D Vance</h2>
+        <p> party: Republican</p>
+        <p> Bio: J.D Vance is a Junior Senator for Ohio. He has also served in the Marine Corps., and wrote a memoir called "Hillbilly Elegy", which adapted into a movie in 2020</p>
+        <p><a href="https://www.donaldjtrump.com">More Information</a></p>
+        <div class="image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Senator_Vance_official_portrait._118th_Congress.jpg/800px-Senator_Vance_official_portrait._118th_Congress.jpg" width="220px" height="300px">
+        </div>
+    </div>
+        
+
+  
+    <script>
+        const electionDate = new Date("2024-11-05T00:00:00");
+        const countdownElement = document.getElementById('countdown');
+
+        function updateCountdown() {
+            const now = new Date();
+            const timeRemaining = electionDate - now;
+
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            countdownElement.innerText = `${days} Days, ${hours} Hours, ${minutes} Minutes, ${seconds} Seconds`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call to display immediately
+    </script>
+
+</body>
+</html>
