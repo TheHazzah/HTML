@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Theme Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s, color 0.5s;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+        }
+        body.dark {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button.light {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+        button.dark {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Toggle Theme Example</h1>
+    <p>Click the button below to switch between light and dark themes.</p>
+    <button id="themeButton" class="light" onclick="toggleTheme()">Switch to Dark Theme</button>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const button = document.getElementById('themeButton');
+            body.classList.toggle('dark');
+
+            if (body.classList.contains('dark')) {
+                button.classList.remove('light');
+                button.classList.add('dark');
+                button.textContent = 'Switch to Light Theme';
+            } else {
+                button.classList.remove('dark');
+                button.classList.add('light');
+                button.textContent = 'Switch to Dark Theme';
+            }
+        }
+    </script>
+</body>
+</html>
