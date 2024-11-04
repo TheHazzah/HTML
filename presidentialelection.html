@@ -31,7 +31,10 @@
             margin: 10px;
             background-color: #8a9ea0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            width: 100%; /* Adjust width to fit side by side */
+            width: 100%;
+            display: flex; /* Use flexbox to align image and bio */
+            align-items: center; /* Center items vertically */
+            position: relative; /* Needed for positioning bio text */
         }
         .runningmate, .runningmate2 {
             background-color: #97b9af;
@@ -51,7 +54,37 @@
             text-decoration: none;
         }
         .image {
-            text-align: right;
+            margin-right: 15px; /* Space between image and text */
+            position: relative; /* Needed for absolute positioning of bio */
+        }
+        .bio {
+            display: none; /* Initially hidden */
+            position: absolute; /* Position it relative to the image */
+            bottom: -20px; /* Position it below the image */
+            left: 0;
+            background-color: #97b9af;
+            border: 1px solid #8a9ea0;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .image:hover .bio {
+            display: block; /* Show bio on hover */
+        }
+
+        /* Centering styles for the iframe */
+        .iframe-container {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center the iframe */
+            justify-content: center; /* Center vertically */
+            width: 100%; /* Make it full width for centering */
+            margin: 20px 0; /* Margin for spacing */
+        }
+        iframe {
+            border: none; /* Remove default border */
+            max-width: 100%; /* Ensure it is responsive */
         }
     </style>
 </head>
@@ -88,61 +121,70 @@
     <section class="container">
         <div>
             <div class="candidate">
-                <h2>Candidate 1: Kamala Harris</h2>
-                <p>Party: Democratic</p>
-                <p>Bio: Kamala Harris was previously VP for 4 years under Joe Biden. If elected, she will be the first female president in American history.</p>
-                <p><a href="https://kamalaharris.com/meet-kamala-harris/" target="_blank">More information</a></p>
                 <div class="image">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Kamala_Harris_Vice_Presidential_Portrait.jpg/800px-Kamala_Harris_Vice_Presidential_Portrait.jpg" width="220" height="300" alt="Kamala Harris">
+                    <div class="bio">
+                        <h2>Candidate 1: Kamala Harris</h2>
+                        <p>Party: Democratic</p>
+                        <p>Bio: Kamala Harris was previously VP for 4 years under Joe Biden. If elected, she will be the first female president in American history.</p>
+                        <p><a href="https://kamalaharris.com/meet-kamala-harris/" target="_blank">More information</a></p>
+                    </div>
                 </div>
-                <iframe title="polymarket-market-iframe"
-                        src="https://embed.polymarket.com/market.html?market=will-kamala-harris-win-the-2024-us-presidential-election&features=volume&theme=dark"
-                        width="400"
-                        height="180"
-                        frameBorder="0"></iframe>
             </div>
 
             <div class="runningmate">
-                <h2>Running Mate for Kamala Harris: Tim Walz</h2>
-                <p>Party: Democrat</p>
-                <p>Bio: Tim Walz is a Minnesota governor and former high school teacher, who has proposed policies like signing a $2.3 billion education budget into law.</p>
-                <p><a href="https://kamalaharris.com/meet-governor-tim-walz/" target="_blank">More information</a></p>
                 <div class="image">
                     <img src="https://mn.gov/governor/assets/Governor%20Walz-2024-Bio_tcm1055-418597.jpg" width="220" height="300" alt="Tim Walz">
+                    <div class="bio">
+                        <h2>Running Mate for Kamala Harris: Tim Walz</h2>
+                        <p>Party: Democrat</p>
+                        <p>Bio: Tim Walz is a Minnesota governor and former high school teacher, who has proposed policies like signing a $2.3 billion education budget into law.</p>
+                        <p><a href="https://kamalaharris.com/meet-governor-tim-walz/" target="_blank">More information</a></p>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <div class="iframe-container">
+            <iframe
+                title="polymarket-election-map-iframe"
+                src="https://polymarket.com/embed/elections/map?event=presidency&theme=dark"
+                width="480"
+                height="360"
+            ></iframe>
+        </div>
+
         <div>
             <div class="candidate2">
-                <h2>Candidate 2: Donald Trump</h2>
-                <p>Party: Republican</p>
-                <p>Bio: Donald Trump is a former businessman and the 45th president of America. A famous fighter, he has become a namesake of the Republican party in recent times.</p>
-                <p><a href="https://www.donaldjtrump.com" target="_blank">More information</a></p>
                 <div class="image">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1MWm4Uc-yhWB5bkRg8r_Vy6ueABFtDb_qSA&s" width="220" height="300" alt="Donald Trump">
+                    <div class="bio">
+                        <h2>Candidate 2: Donald Trump</h2>
+                        <p>Party: Republican</p>
+                        <p>Bio: Donald Trump is a former businessman and the 45th president of America. A famous fighter, he has become a namesake of the Republican party in recent times.</p>
+                        <p><a href="https://www.donaldjtrump.com" target="_blank">More information</a></p>
+                    </div>
                 </div>
-                <iframe title="polymarket-market-iframe"
-                        src="https://embed.polymarket.com/market.html?market=will-donald-trump-win-the-2024-us-presidential-election&features=volume&theme=dark"
-                        width="400"
-                        height="180"
-                        frameBorder="0"></iframe>
             </div>
 
             <div class="runningmate2">
-                <h2>Running Mate for Donald Trump: J.D Vance</h2>
-                <p>Party: Republican</p>
-                <p>Bio: J.D Vance is a Junior Senator for Ohio. He has also served in the Marine Corps. and wrote a memoir called "Hillbilly Elegy", which was adapted into a movie in 2020.</p>
-                <p><a href="https://www.donaldjtrump.com">More Information</a></p>
                 <div class="image">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Senator_Vance_official_portrait._118th_Congress.jpg/800px-Senator_Vance_official_portrait._118th_Congress.jpg" width="220" height="300" alt="J.D. Vance">
+                    <div class="bio">
+                        <h2>Running Mate for Donald Trump: J.D Vance</h2>
+                        <p>Party: Republican</p>
+                        <p>Bio: J.D Vance is a Junior Senator for Ohio. He has also served in the Marine Corps. and wrote a memoir called "Hillbilly Elegy", which was adapted into a movie in 2020.</p>
+                        <p><a href="https://www.donaldjtrump.com">More Information</a></p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Presidential Election Info</p>
+        <p> 2024 Presidential Election Info</p>
     </footer>
 </body>
 </html>
+
+
