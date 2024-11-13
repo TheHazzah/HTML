@@ -1,18 +1,183 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <script src="myScript.js"></script>  
-    <title> index</title>
-<style> .js  {color: black; height:200px;
-    width:200px;} .button { margin: 4px 2px;
-padding: 15px 32px;} 
-body {background-color: #c3d3cb91 } h1 {color; }  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">  
+    <script src="myScript.js"></script>
+    <title>Hazard - Web Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4f7fb;
+            font-family: 'Oswald', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            padding: 40px 20px;
+            background-image: url('https://www.transparenttextures.com/patterns/stripes.png');
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px;
+            background-color: #ad9f9c;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #333;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 20px 0;
+            border: 4px solid #ddd;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1.2em;
+            padding: 12px 20px;
+            background-color: #f4f7fb;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            display: inline-block;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        a:hover {
+            background-color: #007bff;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .button {
+            margin: 20px 0;
+            padding: 15px 32px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+        }
+
+        .subheading {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        #aboutMe {
+            text-align: center;
+            font-family: 'Oswald', sans-serif;
+        }
+
+
+       
+    </style>
 </head>
 <body>
-    <h1> this is the main hub for html projects that i am going to work on in the future, mostly long-term.</h1>
-    <img src="https://api.photon.aremedia.net.au/wp-content/uploads/sites/6/2024/10/american-psycho-patrick-bateman-wearing-1080-x-1080-px-1080-x-1920-px-1080-x-1080-px-1920-x-1080-px.jpg?fit=1920%2C1080" width="300 px" height="150px">
-    <p> this is the main hub for html projects that i am going to work on in the future, mostly long-term.</p>
-    <ul>
-       <li><p> <a href="C:\Users\22h083\OneDrive - George Heriot's School\Documents\HTML\Java_shit.html">Javascript stuff</a> </p></li>
-        <li><p><a href="C:\Users\22h083\OneDrive - George Heriot's School\Documents\HTML\presidentialelection.html"> US election shit</a></p></li>
-    </ul>
+    <div class="container">
+        <!-- Profile Section -->
+        <h1>Hazzah</h1>
+        <img src="thousand_yard.jpg" alt="Profile Picture">
+        <p><strong>Frontend Web Developer</strong></p>
+
+        <!-- About Me Section -->
+        <div class="section" id="aboutMe">
+            <h2 class="subheading">About Me</h2>
+            <p>I am a frontend web developer with a passion for creating intuitive, responsive, and visually appealing websites. With a strong background in HTML, CSS, and JavaScript, I enjoy bringing creative ideas to life in the digital space.</p>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="section">
+            <h2 class="subheading">Skills</h2>
+            <ul>
+                <li>HTML, CSS, JavaScript also some react</li>
+                <li>Responsive Web Design</li>
+                <li> GitHub</li>
+                
+            </ul>
+        </div>
+
+        <!-- Projects Section -->
+       <div class="section">
+    <h2>My Projects</h2>
+    <div class="project-card">
+
+       <h3>Project 1</h3>
+       <p>A brief description of the project...</p>
+       <a href="Java_shit.html"  target="_blank">JavaScript Stuff</a>
+    </div>
+    <div class="project-card">
+       
+       <h3>Project 2</h3>
+       <p>Another project description...</p>
+       <a href="presidentialelection.html" class="card" target="_blank">US Election Projects</a>
+    </div>
+</div>
+
+
+        
+				<p> email= Harrygkgill@outlook.com Github= TheHazzah
+            
+
+        <!-- Button for Resume or More Info -->
+    </div>
 </body>
+</html>

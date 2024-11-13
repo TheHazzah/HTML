@@ -22,6 +22,9 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s, color 0.3s;
         }
         button.light {
             background-color: #333;
@@ -31,29 +34,203 @@
             background-color: #f0f0f0;
             color: #333;
         }
+        /* Hover effect for the button */
+        button:hover {
+            opacity: 0.8;
+        }
+        .icon {
+            margin-right: 8px;
+        }
+        /* For the moon and sun icons */
+        .sun {
+            display: none;
+        }
+        body.dark .sun {
+            display: inline-block;
+        }
+        body.dark .moon {
+            display: none;
+        }
+
+        /* Styling for the clock */
+        .clock {
+            font-size: 2em;
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        body.dark .clock {
+            background-color: #444;
+            border-color: #666;
+            color: #f0f0f0;
+        }
+
+        /* Button to toggle clock visibility */
+        .toggle-clock {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-clock:hover {
+            background-color: #0056b3;
+        }
+		.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
     </style>
 </head>
 <body>
+<button onclick="openModal()">Open Modal</button>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Modal Header</h2>
+        <img src="thousand_yard.jpg">
+    </div>
+</div>
+
+<script>
+// Function to open the modal
+function openModal() {
+    document.getElementById('myModal').style.display = 'block';
+}
+
+// Function to close the modal
+function closeModal() {
+    document.getElementById('myModal').style.display = 'none';
+}
+</script>
+
+
+
     <h1>Toggle Theme Example</h1>
     <p>Click the button below to switch between light and dark themes.</p>
-    <button id="themeButton" class="light" onclick="toggleTheme()">Switch to Dark Theme</button>
+    <button id="themeButton" class="light" onclick="toggleTheme()">
+        <span id="themeIcon" class="icon moon">🌙</span>
+        <span id="buttonText">Switch to Dark Theme</span>
+    </button>
+
+    <button class="toggle-clock" onclick="toggleClockVisibility()">Toggle Clock Visibility</button>
+
+    <!-- Clock element -->
+    <div id="clock" class="clock" style="display: none;"></div>
 
     <script>
+        // Function to toggle the theme between light and dark
         function toggleTheme() {
             const body = document.body;
             const button = document.getElementById('themeButton');
+            const themeIcon = document.getElementById('themeIcon');
+            const buttonText = document.getElementById('buttonText');
+
+            // Toggle dark class on body
             body.classList.toggle('dark');
 
+            // Check if dark mode is activated
             if (body.classList.contains('dark')) {
+                // Change button appearance
                 button.classList.remove('light');
                 button.classList.add('dark');
-                button.textContent = 'Switch to Light Theme';
+                // Update button text
+                buttonText.textContent = 'Switch to Light Theme';
+                // Change icon to sun
+                themeIcon.textContent = '☀️';
+                // Save the user's theme preference to localStorage
+                localStorage.setItem('theme', 'dark');
             } else {
+                // Reset button appearance
                 button.classList.remove('dark');
                 button.classList.add('light');
-                button.textContent = 'Switch to Dark Theme';
+                // Update button text
+                buttonText.textContent = 'Switch to Dark Theme';
+                // Change icon to moon
+                themeIcon.textContent = '🌙';
+                // Save the user's theme preference to localStorage
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load the saved theme from localStorage when the page loads
+        window.onload = function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+                document.getElementById('themeButton').classList.add('dark');
+                document.getElementById('themeButton').classList.remove('light');
+                document.getElementById('themeIcon').textContent = '☀️';
+                document.getElementById('buttonText').textContent = 'Switch to Light Theme';
+            }
+
+            // Start the clock as soon as the page loads
+            startClock();
+        };
+
+        // Function to start the clock and update it every second
+        function startClock() {
+            const clockElement = document.getElementById('clock');
+            setInterval(function() {
+                const now = new Date();
+                const hours = now.getHours().toString().padStart(2, '0');
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                const seconds = now.getSeconds().toString().padStart(2, '0');
+                clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+            }, 1000);
+        }
+
+        // Function to toggle the clock visibility
+        function toggleClockVisibility() {
+            const clockElement = document.getElementById('clock');
+            if (clockElement.style.display === "none") {
+                clockElement.style.display = "block";
+            } else {
+                clockElement.style.display = "none";
             }
         }
     </script>
 </body>
 </html>
+
